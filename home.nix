@@ -20,6 +20,8 @@
   home.packages = [
     pkgs.neofetch
     pkgs.xclip
+    pkgs.tmux
+    pkgs.tree
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
