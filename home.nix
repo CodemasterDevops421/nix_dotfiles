@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "chaithu";
+  home.username      = "chaithu";
   home.homeDirectory = "/home/chaithu";
 
   # This value determines the Home Manager release that your configuration is
@@ -19,6 +19,7 @@
   # environment.
   home.packages = [
     pkgs.neofetch
+    pkgs.xclip
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -49,7 +50,7 @@
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    # '';  
   };
 
   # Home Manager can also manage your environment variables through
@@ -73,7 +74,8 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true; 
-  programs.starship.enable = true;
-  programs.bash.enable = true;
+  programs.home-manager.enable = true;
+  programs.starship.enable     = true;
+  programs.bash.enable         = true;
+
 }
