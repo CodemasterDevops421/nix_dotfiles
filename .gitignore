@@ -1,0 +1,8 @@
+# ignore OS files
+.DS_Store
+Thumbs.db
+
+# ignore logs, caches, secrets
+*.log
+tmp/
+.cache/
