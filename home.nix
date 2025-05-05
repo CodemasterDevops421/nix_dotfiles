@@ -24,6 +24,8 @@
     pkgs.tree
     pkgs.zsh
     pkgs.dos2unix
+    pkgs.ghostty
+    pkgs.alacritty
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
