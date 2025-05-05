@@ -22,6 +22,7 @@
     pkgs.xclip
     pkgs.tmux
     pkgs.tree
+    pkgs.zsh
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
