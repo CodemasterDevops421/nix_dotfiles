@@ -2,7 +2,7 @@
 
 {
   ##################################################
-  # User & State
+  # Basic user info
   ##################################################
   home.username      = "chaithu";
   home.homeDirectory = "/home/chaithu";
@@ -12,23 +12,9 @@
   # Packages
   ##################################################
   home.packages = with pkgs; [
-    neofetch
-    xclip
-    tmux              # tmux.nix will configure it
-    tree
-    zsh               # programs.zsh below
-    dos2unix
-    ghostty
-    alacritty
-    bat
-    fzf
-    eza               # replacement for exa
-    ripgrep
-    zoxide
-    bottom
-    starship          # programs.starship below
-
-    # Nerd Fonts (now individual pkgs.nerd-fonts.<name>)
+    neofetch  xclip   tmux    tree   zsh   dos2unix  ghostty  alacritty
+    bat       fzf     eza     ripgrep zoxide bottom  starship sqlite
+    zsh-histdb                             # history‑to‑SQLite plugin
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
   ];
@@ -55,28 +41,38 @@
       gp   = "git push";
       nixr = "sudo nixos-rebuild switch --flake .#chaithu";
     };
+
+    initExtra = ''
+      # histdb plugin
+      fpath=(${pkgs.zsh-histdb}/share/zsh/site-functions $fpath)
+      autoload -Uz histdb histdb-top _histdb-isearch
+      histdb-install || true
+      bindkey '^R' _histdb-isearch
+    '';
   };
 
   ##################################################
-  # Starship Prompt Configuration
+  # Starship Prompt
   ##################################################
   programs.starship = {
     enable   = true;
     settings = {
       add_newline = false;
+
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol   = "[✗](bold red)";
       };
-      git_branch   = { symbol = "🌱 "; };
-      kubernetes   = { symbol = "⛵ "; disabled = false; };
-      terraform    = { symbol = "💠 "; };
-      aws          = { symbol = "☁️  "; };
+
+      git_branch = { symbol = "🌱 "; };
+      kubernetes = { symbol = "⛵ "; disabled = false; };
+      terraform  = { symbol = "💠 "; };
+      aws        = { symbol = "☁️  "; };
     };
   };
 
   ##################################################
-  # Fonts & Environment Variables
+  # Fonts & Session Variables
   ##################################################
   fonts.fontconfig.enable = true;
 
@@ -86,7 +82,7 @@
   };
 
   ##################################################
-  # Home Manager Self-Management
+  # Home-Manager Self-Management
   ##################################################
   programs.home-manager.enable = true;
 }
