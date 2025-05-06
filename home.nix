@@ -71,7 +71,7 @@
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
   #
   # or
-  #
+  #adding for test
   #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
   #
   # or
