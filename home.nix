@@ -26,6 +26,9 @@
     pkgs.dos2unix
     pkgs.ghostty
     pkgs.alacritty
+    pkgs.zsh-autosuggestions
+    pkgs.zsh-syntax-highlighting
+    pkgs.zsh-powerlevel10k
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

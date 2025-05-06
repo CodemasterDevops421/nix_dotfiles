@@ -11,19 +11,25 @@
       telescope-nvim
       lazygit-nvim
       nvim-treesitter
+      tokyonight-nvim   # 🎨 NEW: Add your colorscheme plugin here
     ];
 
-    # Replace Vimscript with Lua
     extraLuaConfig = ''
       vim.opt.number = true
       vim.cmd("syntax on")
 
-      -- Keybinding: <leader>gg to open LazyGit
-      vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
+      -- Set leader key (optional)
+      vim.g.mapleader = " "
+
+      -- Set the colorscheme
+      vim.cmd.colorscheme("tokyonight")
+
+      -- Optional: style tweaks
+      vim.opt.termguicolors = true
+      vim.opt.background = "dark" -- or "light"
     '';
   };
 
-  # Make sure lazygit CLI is installed
   home.packages = with pkgs; [
     lazygit
   ];
