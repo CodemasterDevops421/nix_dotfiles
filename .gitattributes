@@ -1,0 +1,6 @@
+# enforce LF endings
+* text=auto eol=lf
+
+# make extra sure for our nix and zsh files
+*.nix  text eol=lf
+*.zsh  text eol=lf
